@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: apigit:apigit
     name: APIGit
-    tags:
-      - API
+    tags: []
     humanURL: https://apigit.com/
     properties:
       - url: https://apigit.com/
@@ -16,9 +15,9 @@ apis:
       sharing.
 name: APIGit
 tags:
+  - Authentication
   - Integrations
   - Keys
-  - Authentication
   - Monitoring
   - Platform
 type: Index
