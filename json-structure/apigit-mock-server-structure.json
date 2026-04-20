@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apigit/refs/heads/main/json-structure/apigit-mock-server-structure.json",
+  "description": "An APIGit dynamic mock server instance.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "mock-001"
+    },
+    "repoId": {
+      "type": "string",
+      "example": "repo-001"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "stopped"
+      ]
+    }
+  },
+  "name": "MockServer"
+}

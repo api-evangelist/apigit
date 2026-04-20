@@ -1,0 +1,104 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "APIGit"
+  description: "Vocabulary for APIGit Git-native API lifecycle platform covering repositories, API definitions, mock servers, and tests."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: APIGit API
+      namespace: apigit
+      version: "1.0"
+      baseUrl: https://api.apigit.com/v1
+      status: active
+
+  resources:
+    - name: repositories
+      apis: [apigit]
+      actions: [list, get, create]
+    - name: api-definitions
+      apis: [apigit]
+      actions: [get, update]
+    - name: mock-servers
+      apis: [apigit]
+      actions: [start, stop]
+    - name: tests
+      apis: [apigit]
+      actions: [list, run]
+
+  actions:
+    - name: list
+      http_method: GET
+      pattern: read
+    - name: get
+      http_method: GET
+      pattern: read
+    - name: create
+      http_method: POST
+      pattern: write
+    - name: start
+      http_method: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Repository
+        description: An APIGit API Git repository.
+      - name: MockServer
+        description: A dynamic mock server instance.
+
+  enums:
+    visibility: [public, private]
+    mock_status: [running, stopped]
+    test_status: [passed, failed, pending]
+
+  authentication:
+    schemes:
+      - name: apiKeyAuth
+        type: apikey
+
+capability:
+  workflows:
+    - name: API Lifecycle Development
+      file: capabilities/api-lifecycle-development.yaml
+      apis_combined: [APIGit API]
+      tool_count: 3
+      personas: [API Developer, Backend Engineer]
+
+  personas:
+    - id: api-developer
+      name: API Developer
+      description: Developer designing and building APIs using Git-native workflows.
+      workflows: [API Lifecycle Development]
+    - id: backend-engineer
+      name: Backend Engineer
+      description: Engineer using mock servers for frontend/backend parallel development.
+      workflows: [API Lifecycle Development]
+
+  namespaces:
+    - name: apigit
+      type: consumed
+      baseUri: https://api.apigit.com/v1
+    - name: apigit-lifecycle-api
+      type: rest-exposed
+      port: 8080
+    - name: apigit-lifecycle-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: APIGIT_API_KEY
+      description: APIGit API key.
+      workflows: [API Lifecycle Development]
+
+crossReference:
+  - resource: repositories
+    operations: [listRepositories, createRepository]
+    workflows: [API Lifecycle Development]
+    personas: [API Developer, Backend Engineer]
+  - resource: mock-servers
+    operations: [startMockServer]
+    workflows: [API Lifecycle Development]
+    personas: [Backend Engineer]

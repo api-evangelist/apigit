@@ -1,0 +1,73 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "APIGit API Lifecycle Development"
+  description: "Workflow for Git-native API lifecycle development using APIGit - managing API repositories, designing APIs with visual tools, running mock servers for development, and executing automated tests."
+  tags:
+    - APIGit
+    - API Lifecycle
+    - Git
+    - Mocking
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      APIGIT_API_KEY: APIGIT_API_KEY
+
+capability:
+  consumes:
+    - import: apigit
+      location: ./shared/apigit.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: apigit-lifecycle-api
+      description: "Unified REST API for APIGit lifecycle management."
+      resources:
+        - path: /v1/repos
+          operations:
+            - method: GET
+              name: list-repositories
+              description: "List repositories."
+              call: "apigit.list-repositories"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-repository
+              description: "Create repository."
+              call: "apigit.create-repository"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: apigit-lifecycle-mcp
+      transport: http
+      description: "MCP server for AI-assisted API lifecycle development with APIGit."
+      tools:
+        - name: list-api-repositories
+          description: "List all API Git repositories in APIGit."
+          hints: {readOnly: true, destructive: false, idempotent: true}
+          call: "apigit.list-repositories"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-api-repository
+          description: "Create a new Git-native API repository in APIGit."
+          hints: {readOnly: false, destructive: false, idempotent: false}
+          call: "apigit.create-repository"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: start-mock-server
+          description: "Start a dynamic mock server from an API definition for development testing."
+          hints: {readOnly: false, destructive: false, idempotent: false}
+          call: "apigit.start-mock"
+          outputParameters:
+            - type: object
+              mapping: "$."

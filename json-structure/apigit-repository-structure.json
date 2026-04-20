@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apigit/refs/heads/main/json-structure/apigit-repository-structure.json",
+  "description": "An APIGit API repository.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "repo-001"
+    },
+    "name": {
+      "type": "string",
+      "example": "my-api"
+    },
+    "description": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public",
+        "private"
+      ]
+    }
+  },
+  "name": "Repository"
+}

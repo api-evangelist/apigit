@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "apigit": "https://apigit.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Repository": "apigit:Repository",
+    "MockServer": "apigit:MockServer",
+    "id": {
+      "@id": "apigit:id",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "visibility": {
+      "@id": "apigit:visibility",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "apigit:status",
+      "@type": "xsd:string"
+    }
+  }
+}
