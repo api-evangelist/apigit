@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: APIGit API — Mocks
+  description: 'APIGit API — Mocks. 1 operations. Lead operation: APIGit Start Mock Server. Self-contained Naftiko capability
+    covering one Apigit business surface.'
+  tags:
+  - Apigit
+  - Mocks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APIGIT_API_KEY: APIGIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigit-mocks
+    baseUri: https://api.apigit.com/v1
+    description: APIGit API — Mocks business capability. Self-contained, no shared references.
+    resources:
+    - name: repos-repoId-mock
+      path: /repos/{repoId}/mock
+      operations:
+      - name: startmockserver
+        method: POST
+        description: APIGit Start Mock Server
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: repoId
+          in: path
+          type: string
+          description: Repository ID.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.APIGIT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apigit-mocks-rest
+    port: 8080
+    description: REST adapter for APIGit API — Mocks. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/repos/{repoid}/mock
+      name: repos-repoid-mock
+      description: REST surface for repos-repoId-mock.
+      operations:
+      - method: POST
+        name: startmockserver
+        description: APIGit Start Mock Server
+        call: apigit-mocks.startmockserver
+        with:
+          repoId: rest.repoId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigit-mocks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for APIGit API — Mocks. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apigit-start-mock-server
+      description: APIGit Start Mock Server
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: apigit-mocks.startmockserver
+      with:
+        repoId: tools.repoId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

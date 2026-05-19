@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: APIGit API — APIs
+  description: 'APIGit API — APIs. 1 operations. Lead operation: APIGit Get API Definition. Self-contained Naftiko capability
+    covering one Apigit business surface.'
+  tags:
+  - Apigit
+  - APIs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APIGIT_API_KEY: APIGIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apigit-apis
+    baseUri: https://api.apigit.com/v1
+    description: APIGit API — APIs business capability. Self-contained, no shared references.
+    resources:
+    - name: repos-repoId-api
+      path: /repos/{repoId}/api
+      operations:
+      - name: getapidefinition
+        method: GET
+        description: APIGit Get API Definition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: repoId
+          in: path
+          type: string
+          description: Repository ID.
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.APIGIT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apigit-apis-rest
+    port: 8080
+    description: REST adapter for APIGit API — APIs. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/repos/{repoid}/api
+      name: repos-repoid-api
+      description: REST surface for repos-repoId-api.
+      operations:
+      - method: GET
+        name: getapidefinition
+        description: APIGit Get API Definition
+        call: apigit-apis.getapidefinition
+        with:
+          repoId: rest.repoId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apigit-apis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for APIGit API — APIs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: apigit-get-api-definition
+      description: APIGit Get API Definition
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apigit-apis.getapidefinition
+      with:
+        repoId: tools.repoId
+      outputParameters:
+      - type: object
+        mapping: $.
