@@ -43,13 +43,13 @@ apis:
     type: JSONSchema
   - url: json-ld/apigit-context.jsonld
     type: JSONLD
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apigit-apis.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apigit-mocks.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apigit-repositories.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apigit-tests.yaml
   description: APIGit is a Git-native API lifecycle platform providing native Git repositories, visual API design, documentation
     generation, governance policies, automated testing, and dynamic mock servers for API development.
