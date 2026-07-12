@@ -54,6 +54,10 @@ apis:
   description: APIGit is a Git-native API lifecycle platform providing native Git repositories, visual API design, documentation
     generation, governance policies, automated testing, and dynamic mock servers for API development.
 common:
+- type: DomainSecurity
+  url: security/apigit-domain-security.yml
+- type: Authentication
+  url: authentication/apigit-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/apigit
 - url: https://apigit.com/
