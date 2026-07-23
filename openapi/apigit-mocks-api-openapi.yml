@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: APIGit APIs Mocks API
+  description: APIGit is a Git-native platform for full lifecycle API development, combining version control, API design, documentation, governance, testing, and dynamic mock servers in a single platform.
+  version: '1.0'
+  contact:
+    name: APIGit
+    url: https://apigit.com/
+  x-generated-from: documentation
+servers:
+- url: https://api.apigit.com/v1
+  description: APIGit Production API
+security:
+- apiKeyAuth: []
+tags:
+- name: Mocks
+  description: Manage dynamic mock servers.
+paths:
+  /repos/{repoId}/mock:
+    post:
+      operationId: startMockServer
+      summary: APIGit Start Mock Server
+      description: Starts a dynamic mock server for the specified repository.
+      tags:
+      - Mocks
+      parameters:
+      - name: repoId
+        in: path
+        required: true
+        description: Repository ID.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                port:
+                  type: integer
+                  description: Port to run the mock server on.
+            examples:
+              StartMockServerRequestExample:
+                summary: Default startMockServer request
+                x-microcks-default: true
+                value:
+                  port: 3000
+      responses:
+        '200':
+          description: Mock server started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MockServer'
+              examples:
+                StartMockServer200Example:
+                  summary: Default startMockServer 200 response
+                  x-microcks-default: true
+                  value:
+                    id: mock-001
+                    repoId: repo-001
+                    url: https://mock.apigit.com/mock-001
+                    status: running
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    MockServer:
+      type: object
+      description: A dynamic mock server instance.
+      properties:
+        id:
+          type: string
+          example: mock-001
+        repoId:
+          type: string
+          example: repo-001
+        url:
+          type: string
+          format: uri
+          example: https://mock.apigit.com/mock-001
+        status:
+          type: string
+          enum:
+          - running
+          - stopped
+          example: running
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

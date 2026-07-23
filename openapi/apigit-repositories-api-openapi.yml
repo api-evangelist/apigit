@@ -1,0 +1,165 @@
+openapi: 3.0.3
+info:
+  title: APIGit APIs Repositories API
+  description: APIGit is a Git-native platform for full lifecycle API development, combining version control, API design, documentation, governance, testing, and dynamic mock servers in a single platform.
+  version: '1.0'
+  contact:
+    name: APIGit
+    url: https://apigit.com/
+  x-generated-from: documentation
+servers:
+- url: https://api.apigit.com/v1
+  description: APIGit Production API
+security:
+- apiKeyAuth: []
+tags:
+- name: Repositories
+  description: Manage API Git repositories.
+paths:
+  /repos:
+    get:
+      operationId: listRepositories
+      summary: APIGit List Repositories
+      description: Returns a list of API Git repositories for the authenticated user.
+      tags:
+      - Repositories
+      parameters:
+      - name: limit
+        in: query
+        description: Maximum number of results.
+        schema:
+          type: integer
+          default: 20
+      - name: offset
+        in: query
+        description: Number of results to skip.
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: List of repositories.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepositoryList'
+              examples:
+                ListRepositories200Example:
+                  summary: Default listRepositories 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - id: repo-001
+                      name: my-api
+                      description: My API repository
+                      visibility: public
+                    total: 1
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createRepository
+      summary: APIGit Create Repository
+      description: Creates a new API Git repository.
+      tags:
+      - Repositories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RepositoryCreate'
+            examples:
+              CreateRepositoryRequestExample:
+                summary: Default createRepository request
+                x-microcks-default: true
+                value:
+                  name: my-api
+                  description: My new API repository
+                  visibility: public
+      responses:
+        '201':
+          description: Repository created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+              examples:
+                CreateRepository201Example:
+                  summary: Default createRepository 201 response
+                  x-microcks-default: true
+                  value:
+                    id: repo-001
+                    name: my-api
+                    description: My new API repository
+                    visibility: public
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Repository:
+      type: object
+      description: An APIGit API repository.
+      properties:
+        id:
+          type: string
+          example: repo-001
+        name:
+          type: string
+          example: my-api
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          example: public
+    RepositoryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+        total:
+          type: integer
+    RepositoryCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          default: public
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

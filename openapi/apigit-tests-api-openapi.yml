@@ -1,0 +1,101 @@
+openapi: 3.0.3
+info:
+  title: APIGit APIs Tests API
+  description: APIGit is a Git-native platform for full lifecycle API development, combining version control, API design, documentation, governance, testing, and dynamic mock servers in a single platform.
+  version: '1.0'
+  contact:
+    name: APIGit
+    url: https://apigit.com/
+  x-generated-from: documentation
+servers:
+- url: https://api.apigit.com/v1
+  description: APIGit Production API
+security:
+- apiKeyAuth: []
+tags:
+- name: Tests
+  description: Manage API tests.
+paths:
+  /repos/{repoId}/tests:
+    get:
+      operationId: listTests
+      summary: APIGit List Tests
+      description: Returns all API tests for a repository.
+      tags:
+      - Tests
+      parameters:
+      - name: repoId
+        in: path
+        required: true
+        description: Repository ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of tests.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestList'
+              examples:
+                ListTests200Example:
+                  summary: Default listTests 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - id: test-001
+                      name: Get Users Test
+                      status: passed
+                    total: 1
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Test:
+      type: object
+      description: An API test.
+      properties:
+        id:
+          type: string
+          example: test-001
+        name:
+          type: string
+          example: Get Users Test
+        status:
+          type: string
+          enum:
+          - passed
+          - failed
+          - pending
+          example: passed
+    TestList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Test'
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key

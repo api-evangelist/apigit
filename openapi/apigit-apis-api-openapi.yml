@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: APIGit APIs API
+  description: APIGit is a Git-native platform for full lifecycle API development, combining version control, API design, documentation, governance, testing, and dynamic mock servers in a single platform.
+  version: '1.0'
+  contact:
+    name: APIGit
+    url: https://apigit.com/
+  x-generated-from: documentation
+servers:
+- url: https://api.apigit.com/v1
+  description: APIGit Production API
+security:
+- apiKeyAuth: []
+tags:
+- name: APIs
+  description: Manage API definitions and designs.
+paths:
+  /repos/{repoId}/api:
+    get:
+      operationId: getApiDefinition
+      summary: APIGit Get API Definition
+      description: Returns the OpenAPI definition for a repository.
+      tags:
+      - APIs
+      parameters:
+      - name: repoId
+        in: path
+        required: true
+        description: Repository ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: API definition.
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                GetApiDefinition200Example:
+                  summary: Default getApiDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    openapi: 3.0.3
+                    info:
+                      title: My API
+                      version: '1.0'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
