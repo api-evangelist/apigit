@@ -54,14 +54,6 @@ apis:
     url: json-schema/apigit-mock-server-schema.json
   - type: JSONLD
     url: json-ld/apigit-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-mocks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-repositories.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-tests.yaml
 - aid: apigit:apigit-mocks-api
   name: APIGit Mocks API
   description: Manage dynamic mock servers.
@@ -82,14 +74,6 @@ apis:
     url: json-schema/apigit-mock-server-schema.json
   - type: JSONLD
     url: json-ld/apigit-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-mocks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-repositories.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-tests.yaml
 - aid: apigit:apigit-repositories-api
   name: APIGit Repositories API
   description: Manage API Git repositories.
@@ -110,14 +94,6 @@ apis:
     url: json-schema/apigit-mock-server-schema.json
   - type: JSONLD
     url: json-ld/apigit-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-mocks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-repositories.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-tests.yaml
 - aid: apigit:apigit-tests-api
   name: APIGit Tests API
   description: Manage API tests.
@@ -138,14 +114,6 @@ apis:
     url: json-schema/apigit-mock-server-schema.json
   - type: JSONLD
     url: json-ld/apigit-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-apis.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-mocks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-repositories.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apigit-tests.yaml
 common:
 - type: AgenticAccess
   url: agentic-access/apigit-agentic-access.yml
