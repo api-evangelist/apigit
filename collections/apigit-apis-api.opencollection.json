@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "APIGit APIs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "APIGit Get API Definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apigit.com/v1/repos/:repoId/api",
+            "params": [
+              {
+                "name": "repoId",
+                "value": "",
+                "type": "path",
+                "description": "Repository ID."
+              }
+            ]
+          },
+          "docs": "Returns the OpenAPI definition for a repository."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

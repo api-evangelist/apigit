@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "APIGit APIs Mocks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "APIGit Start Mock Server",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.apigit.com/v1/repos/:repoId/mock",
+            "params": [
+              {
+                "name": "repoId",
+                "value": "",
+                "type": "path",
+                "description": "Repository ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts a dynamic mock server for the specified repository."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
