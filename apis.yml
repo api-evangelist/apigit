@@ -39,7 +39,8 @@ apis:
   description: Manage API definitions and designs.
   humanURL: https://apigit.com/
   baseURL: https://api.apigit.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - APIs
   properties:
   - type: OpenAPI
