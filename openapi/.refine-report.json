@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "apigit-apis-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apigit-mocks-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apigit-repositories-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apigit-tests-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
