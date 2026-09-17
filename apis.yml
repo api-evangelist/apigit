@@ -48,27 +48,6 @@ modified: '2026-05-19'
 position: Consuming
 specificationVersion: '0.23'
 apis:
-- aid: apigit:apigit-apis-api
-  name: APIGit APIs API
-  description: Manage API definitions and designs.
-  humanURL: https://apigit.com/
-  baseURL: https://api.apigit.com/v1
-  tags: []
-  tags_raw:
-  - APIs
-  properties:
-  - type: OpenAPI
-    url: openapi/apigit-apis-api-openapi.yml
-  - type: Documentation
-    url: https://apigit.com/
-  - type: Pricing
-    url: https://apigit.com/pricing
-  - type: JSONSchema
-    url: json-schema/apigit-repository-schema.json
-  - type: JSONSchema
-    url: json-schema/apigit-mock-server-schema.json
-  - type: JSONLD
-    url: json-ld/apigit-context.jsonld
 - aid: apigit:apigit-mocks-api
   name: APIGit Mocks API
   description: Manage dynamic mock servers.
@@ -119,6 +98,26 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/apigit-tests-api-openapi.yml
+  - type: Documentation
+    url: https://apigit.com/
+  - type: Pricing
+    url: https://apigit.com/pricing
+  - type: JSONSchema
+    url: json-schema/apigit-repository-schema.json
+  - type: JSONSchema
+    url: json-schema/apigit-mock-server-schema.json
+  - type: JSONLD
+    url: json-ld/apigit-context.jsonld
+- aid: apigit:apigit-apis-api
+  name: APIGit AP Is API
+  description: Manage API definitions and designs.
+  humanURL: https://apigit.com/
+  baseURL: https://api.apigit.com/v1
+  tags:
+  - APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/apigit-apis-api-openapi.yml
   - type: Documentation
     url: https://apigit.com/
   - type: Pricing
