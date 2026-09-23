@@ -102,30 +102,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RepositoryCreate:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-          default: public
-    RepositoryList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Repository'
-        total:
-          type: integer
     Repository:
       type: object
       description: An APIGit API repository.
@@ -144,6 +120,30 @@ components:
           - public
           - private
           example: public
+    RepositoryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+        total:
+          type: integer
+    RepositoryCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+          default: public
     Error:
       type: object
       properties:

@@ -54,13 +54,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     TestList:
       type: object
       properties:
@@ -87,6 +80,13 @@ components:
           - failed
           - pending
           example: passed
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
   responses:
     Unauthorized:
       description: Authentication failed.
