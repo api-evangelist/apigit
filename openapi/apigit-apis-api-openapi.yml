@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: APIGit AP Is API
+  title: APIGit APIs API
   description: APIGit is a Git-native platform for full lifecycle API development, combining version control, API design, documentation, governance, testing, and dynamic mock servers in a single platform.
   version: '1.0'
   contact:

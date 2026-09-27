@@ -109,7 +109,7 @@ apis:
   - type: JSONLD
     url: json-ld/apigit-context.jsonld
 - aid: apigit:apigit-apis-api
-  name: APIGit AP Is API
+  name: APIGit APIs API
   description: Manage API definitions and designs.
   humanURL: https://apigit.com/
   baseURL: https://api.apigit.com/v1

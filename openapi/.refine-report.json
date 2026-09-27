@@ -9,19 +9,16 @@
     "apigit-repositories-api-openapi.yml",
     "apigit-tests-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "apigit-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "superseded outputs removed: apigit-ap-is-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 4 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "apigit-ap-is-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apigit-apis-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apigit-mocks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apigit-repositories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apigit-tests-api-openapi.yml: previously refined output, superseded by openapi/_original/"

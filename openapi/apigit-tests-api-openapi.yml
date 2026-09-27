@@ -54,15 +54,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TestList:
+    Error:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Test'
-        total:
-          type: integer
+        error:
+          type: string
+        message:
+          type: string
     Test:
       type: object
       description: An API test.
@@ -80,13 +78,15 @@ components:
           - failed
           - pending
           example: passed
-    Error:
+    TestList:
       type: object
       properties:
-        error:
-          type: string
-        message:
-          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Test'
+        total:
+          type: integer
   responses:
     Unauthorized:
       description: Authentication failed.
