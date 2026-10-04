@@ -61,6 +61,15 @@ components:
           type: string
         message:
           type: string
+    TestList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Test'
+        total:
+          type: integer
     Test:
       type: object
       description: An API test.
@@ -78,15 +87,6 @@ components:
           - failed
           - pending
           example: passed
-    TestList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Test'
-        total:
-          type: integer
   responses:
     Unauthorized:
       description: Authentication failed.

@@ -101,16 +101,14 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    Unauthorized:
+      description: Authentication failed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    RepositoryList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Repository'
-        total:
-          type: integer
     RepositoryCreate:
       type: object
       required:
@@ -126,13 +124,6 @@ components:
           - public
           - private
           default: public
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     Repository:
       type: object
       description: An APIGit API repository.
@@ -151,13 +142,22 @@ components:
           - public
           - private
           example: public
-  responses:
-    Unauthorized:
-      description: Authentication failed.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    RepositoryList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Repository'
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey
