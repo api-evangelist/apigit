@@ -1,4 +1,4 @@
-# APIGit (apigit)
+# APIGit
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,121 +66,162 @@
 
 APIGit is a Git-native platform for full lifecycle API development that combines version control, API design, documentation generation, governance, testing, and dynamic mock servers in a single integrated environment. Teams can build, publish, share, and secure APIs through Git-based workflows.
 
-**URL:** [https://apigit.com/](https://apigit.com/)
+**Areas:** API Design · API Lifecycle · Developer Tools · Documentation · Git · Governance · Mocking · Platform · Testing
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## APIGit on APIs.io
 
-## Tags:
+Everything profiled for APIGit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apigit/](https://apis.io/providers/apigit/)** — or go straight to one of the APIs or properties below.
 
- - API Design, API Lifecycle, Documentation, Git, Governance, Mocking, Platform, Testing
+### APIs (4)
 
-## Timestamps
+- [APIGit Mocks API](https://apis.io/apis/apigit/apigit-mocks-api/) — Manage dynamic mock servers.
+- [APIGit Repositories API](https://apis.io/apis/apigit/apigit-repositories-api/) — Manage API Git repositories.
+- [APIGit Tests API](https://apis.io/apis/apigit/apigit-tests-api/) — Manage API tests.
+- [APIGit APIs API](https://apis.io/apis/apigit/apigit-apis-api/) — Manage API definitions and designs.
 
-- **Created:** 2025-01-08
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### APIGit
-APIGit provides a Git-native API lifecycle platform with native Git repositories, visual API design, documentation generation, governance policies, automated testing, and dynamic mock servers.
+#### Agentic access (1)
 
-**Human URL:** [https://apigit.com/](https://apigit.com/)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Apigit Agentic Access](https://apis.io/agentic-access/apigit/apigit-agentic-access/)
 
- - API Design, API Lifecycle, Git, Mocking
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://apigit.com/)
-- [Pricing](https://apigit.com/pricing)
-- [OpenAPI](openapi/apigit-api.yaml)
-- [JSONSchema](json-schema/apigit-repository-schema.json)
-- [JSONSchema](json-schema/apigit-mock-server-schema.json)
-- [JSON-LD](json-ld/apigit-context.jsonld)
+- [MockServer](https://apis.io/schemas/apigit/apigit-mock-server/)
+- [Repository](https://apis.io/schemas/apigit/apigit-repository/)
 
-## Common Properties
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Apigit Mock Server Structure](https://apis.io/json-structure/apigit/apigit-mock-server-structure/)
+- [Apigit Repository Structure](https://apis.io/json-structure/apigit/apigit-repository-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Apigit Context](https://apis.io/jsonld/apigit/apigit-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Apigit Vocabulary](https://apis.io/vocabularies/apigit/apigit-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Apigit Mock Server Example](https://apis.io/examples/apigit/apigit-mock-server-example/)
+- [Apigit Repository Example](https://apis.io/examples/apigit/apigit-repository-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [APIGit APIs API](https://apis.io/collections/apigit/open-apigit-apis-api/)
+- [APIGit APIs Mocks API](https://apis.io/collections/apigit/open-apigit-mocks-api/)
+- [APIGit APIs Repositories API](https://apis.io/collections/apigit/open-apigit-repositories-api/)
+- [APIGit APIs Tests API](https://apis.io/collections/apigit/open-apigit-tests-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [APIGit — jsonschema rules](https://apis.io/rules/apigit/apigit-jsonschema-spectral-rules/)
+- [APIGit API Rules](https://apis.io/rules/apigit/apigit-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apigit Authentication](https://apis.io/security/apigit/apigit-authentication/)
+- [Apigit Domain Security](https://apis.io/security/apigit/apigit-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apigit Plans Pricing](https://apis.io/plans/apigit/apigit-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apigit Rate Limits](https://apis.io/rate-limits/apigit/apigit-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apigit Finops](https://apis.io/finops/apigit/apigit-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://apigit.com/)
 - [Documentation](https://apigit.com/doc)
 - [Pricing](https://apigit.com/pricing)
 - [Blog](https://apigit.com/blog)
-- [GitHubOrganization](https://github.com/apigitlabs)
-- [YouTube](https://www.youtube.com/@apigit)
+- [GitHub](https://github.com/apigitlabs)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Native Git Repository | Version-controlled API repositories with Git-native workflows for teams. |
-| API Design | Visual OpenAPI designer for designing APIs without writing YAML manually. |
-| API Documentation | Automatic documentation generation and publishing with custom domains. |
-| API Governance | Policy management and compliance controls for API standards enforcement. |
-| API Testing | Built-in automated API testing with test case management. |
-| Dynamic Mock Server | Zero-configuration dynamic mock servers generated from API definitions. |
+**Kin Score 24.4** — emerging · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 23.6 |
+| Contract governance | 13.6 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
 
-| Name | Description |
-|------|-------------|
-| Design-First API Development | Design APIs visually before implementation using Git-tracked OpenAPI definitions. |
-| Parallel Frontend-Backend Development | Enable frontend teams to develop against mock servers while backends are being built. |
-| Team API Governance | Enforce API standards and policies across teams with built-in governance tools. |
+**Agent readiness 22.9** — agent-aware
 
-## Solutions
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| Free Plan | 1 API repository, mock server, and document publication with up to 1,000 mock calls/month. |
-| Team Plan | $8/user/month with 5 seats, 5 organizations, and 2,000 mock calls/month/seat. |
-| Enterprise Plan | $18/user/month with 20 organizations, custom domains, SSO, webhooks, and 4,000 mock calls/month/seat. |
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apigit/](https://apis.io/providers/apigit/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [APIGit API](openapi/apigit-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for APIGit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [apigit-repository-schema.json](json-schema/apigit-repository-schema.json)
-- [apigit-mock-server-schema.json](json-schema/apigit-mock-server-schema.json)
-
-### JSON Structure
-
-- [apigit-repository-structure.json](json-structure/apigit-repository-structure.json)
-- [apigit-mock-server-structure.json](json-structure/apigit-mock-server-structure.json)
-
-### JSON-LD
-
-- [apigit-context.jsonld](json-ld/apigit-context.jsonld)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [APIGit API](capabilities/shared/apigit.yaml) — 3 operations for repository and mock server management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [API Lifecycle Development](capabilities/api-lifecycle-development.yaml) | APIGit API | 3 | API Developer, Backend Engineer |
-
-## Vocabulary
-
-- [APIGit Vocabulary](vocabulary/apigit-vocabulary.yaml) — Unified taxonomy mapping 4 resources, 4 actions, 1 workflow, and 2 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [apigit-spectral-rules.yml](rules/apigit-spectral-rules.yml) — 6 rules across 4 categories enforcing APIGit API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apigit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
